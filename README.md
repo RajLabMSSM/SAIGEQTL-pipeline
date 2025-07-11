@@ -8,7 +8,7 @@ Mount Sinai, New York
 
 2025
 
-Snakemake pipeline for running [SAIGE-QTL](https://pubmed.ncbi.nlm.nih.gov/38798318/).
+Snakemake pipeline for running genome-wide [SAIGE-QTL](https://pubmed.ncbi.nlm.nih.gov/38798318/) with common variants.
 
 ## Input data
 
@@ -22,11 +22,11 @@ The *phenoMeta* must be a tab-separated table with feature information including
 
 The *Phenotype* can be either space or tab-delimited with a header. It is required that the file contains one column for sample IDs and one more columns for the phenotype. It may contain columns for covariates.
 
-The *covarColList* should be covariate columns in *Phenotype*
+The *covarColList* should be covariate columns in *Phenotype*.
 
 The *sampleCovarColList* should be covariate columns for samples in *Phenotype*, which have the same values for all cells from the same individual.
 
-The *sampleIDColinphenoFile* should be genotype IDs column in *Phenotype* 
+The *sampleIDColinphenoFile* should be genotype IDs column in *Phenotype*. 
 
 Please take a look at the format details on [SAIGE-QTL-doc](https://weizhou0.github.io/SAIGE-QTL-doc/).
 
