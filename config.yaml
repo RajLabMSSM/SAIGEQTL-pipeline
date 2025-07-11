@@ -1,0 +1,32 @@
+# Configuration for SAIGEQTL Pipeline
+
+# General settings
+outFolder: "results/"              # Folder where output will be saved
+dataCode: "Example_qtl"            # Identifier for the run, used for file naming
+
+# Software setting
+R_version: "R/4.2.0"
+PLINK_version: "plink2/2.3"
+TABIX_version: "tabix/0.2.6"
+BCFTOOLS_version: "bcftools/1.9"
+# GCTA_version: "gcta/1.94.1"
+SAIGEQTL_bin: "path/to/docker/saigeqtl.sif"
+
+
+#sampleKey: "test/test_sample_key.txt" # has to be "sample_id", "participant_id"
+# samples with available junctions
+sampleKey: "path/to/sample_key.txt"
+phenoMeta: "path/to/phenotype_metadata.tsv" 
+bfile: "path/to/bfile" 
+phenotypes: "path/to/pheno_feature.tsv"
+covarColList: "batch,sex,age,PC1,PC2,PC3,PEER1,PEER2,PEER3"
+sampleCovarColList: "batch,sex,age,PC1,PC2,PC3"
+sampleIDColinphenoFile: "participant_id"
+
+mode: "eQTL"
+
+chr_type: 'chr1'
+
+# settings
+threads: 1 # Number of threads to use for runMMQTL rule mclapply parallelization
+

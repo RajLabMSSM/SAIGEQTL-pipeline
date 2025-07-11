@@ -1,0 +1,43 @@
+__default__:
+  queue: express
+  cores: 1
+  mem: 4000
+  time: '180'
+  name: $(basename $(pwd)):{rule}:{wildcards}
+  output: logs/{rule}:{wildcards}.stdout
+  error: logs/{rule}:{wildcards}.stderr
+  himem: ''
+
+rule getParticipants:
+  time: '2:00'
+  cores: 2
+  mem: 8000
+
+prepare_PLINK:
+  time: '2:00'
+  cores: 2
+  mem: 8000
+
+run_SAIGEQTL:
+  time: '12:00'
+  mem: 8000
+  queue: premiumZZ
+  cores: 20
+
+collate_top_chrom:
+  time: '24:00'
+  cores: 8
+  mem: 3000
+  queue: premium
+  
+SAIGEQTL_collate:
+  time: '48:00'
+  cores: 8
+  mem: 3000
+  queue: premium
+
+fullCollate:
+  time: '72:00'
+  cores: 8
+  mem: 3000
+  queue: premium
