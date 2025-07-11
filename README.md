@@ -8,7 +8,7 @@ Mount Sinai, New York
 
 2025
 
-Snakemake pipeline for running [SAIGE-QTL](https://pubmed.ncbi.nlm.nih.gov/38798318/) to account for cell-levels.
+Snakemake pipeline for running [SAIGE-QTL](https://pubmed.ncbi.nlm.nih.gov/38798318/).
 
 ### Input data :
 
