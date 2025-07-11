@@ -10,7 +10,7 @@ Mount Sinai, New York
 
 Snakemake pipeline for running [SAIGE-QTL](https://pubmed.ncbi.nlm.nih.gov/38798318/).
 
-### Input data
+## Input data
 
 The inputs required by the user are a *sampleKey* matching RNA samples to DNA samples, a *bfile* containing the genotype information.
 
