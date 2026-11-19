@@ -14,7 +14,7 @@ prepare_PLINK:
   mem: 8000
   cores: 2
 
-run_CASTIE:
+run_SAIGEQTL:
   time: '48:00'
   mem: 16000
   queue: premium
