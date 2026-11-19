@@ -8,7 +8,7 @@ Mount Sinai, New York
 
 2025
 
-Snakemake pipeline for running genome-wide [SAIGE-QTL](https://pubmed.ncbi.nlm.nih.gov/38798318/) with common variants.
+Snakemake pipeline for running genome-wide [SAIGE-QTL](https://pubmed.ncbi.nlm.nih.gov/42995228/) with common variants.
 
 ## Input data
 
