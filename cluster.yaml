@@ -8,36 +8,50 @@ __default__:
   error: logs/{rule}:{wildcards}.stderr
   himem: ''
 
-rule getParticipants:
-  time: '2:00'
-  cores: 2
-  mem: 8000
-
 prepare_PLINK:
-  time: '2:00'
+  time: '4:00'
+  queue: express
+  mem: 8000
   cores: 2
-  mem: 8000
 
-run_SAIGEQTL:
-  time: '12:00'
-  mem: 8000
-  queue: premiumZZ
-  cores: 20
+run_CASTIE:
+  time: '48:00'
+  mem: 16000
+  queue: premium
+  cores: 4
+
+concat_step2_results:
+  time: '6:00'
+  mem: 32000
+  queue: express
+  cores: 1  
+  
+step3_gene_pvalue:
+  time: '8:00'
+  mem: 16000
+  queue: express
+  cores: 2  
+
+step4_get_egenes:
+  time: '4:00'
+  cores: 1
+  mem: 4000
+  queue: express
 
 collate_top_chrom:
+  time: '12:00'
+  cores: 1
+  mem: 8000
+  queue: express
+
+CASTIE_collate:
   time: '24:00'
-  cores: 8
-  mem: 3000
-  queue: premium
-  
-SAIGEQTL_collate:
-  time: '48:00'
-  cores: 8
-  mem: 3000
+  cores: 1
+  mem: 32000
   queue: premium
 
 fullCollate:
-  time: '72:00'
-  cores: 8
-  mem: 3000
+  time: '24:00'
+  cores: 1
+  mem: 16000
   queue: premium
