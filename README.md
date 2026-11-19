@@ -28,6 +28,8 @@ The *sampleCovarColList* should be covariate columns for samples in *Phenotype*,
 
 The *sampleIDColinphenoFile* should be genotype IDs column in *Phenotype*. 
 
+The *offsetCol* should be genotype IDs column in *Phenotype*. 
+
 Please take a look at the format details on [SAIGE-QTL-doc](https://weizhou0.github.io/SAIGE-QTL-doc/).
 
 
