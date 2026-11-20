@@ -37,8 +37,27 @@ extract_sumstats <- function(j){
   input_j <- inputs[sub('^SAIGEQTL_[^_]+_', '', sub('[.]txt$', '', basename(inputs))) == feature_j]
   if (length(input_j) != 1) stop('Expected one Step 2 file for ', feature_j)
   sumstats_feature_j <- as.data.table(readr::read_tsv(
-    input_j, col_types=cols(CHR=col_character(), MarkerID=col_character()),
-    show_col_types=FALSE))
+    input_j,
+    col_types = readr::cols(
+      CHR           = readr::col_character(),
+      POS           = readr::col_double(),
+      MarkerID      = readr::col_character(),
+      Allele1       = readr::col_character(),
+      Allele2       = readr::col_character(),
+      AC_Allele2    = readr::col_double(),
+      AF_Allele2    = readr::col_double(),
+      MissingRate   = readr::col_double(),
+      BETA          = readr::col_double(),
+      SE            = readr::col_double(),
+      Tstat         = readr::col_double(),
+      var           = readr::col_double(),
+      p.value       = readr::col_double(),
+      p.value.NA    = readr::col_double(),
+      Is.SPA        = readr::col_logical(),
+      N             = readr::col_double()
+    ),
+    show_col_types = FALSE
+  ))
   sumstats_feature_j[, p_bonf := p.adjust(p.value, method='bonferroni')]
   sumstats_feature_j[, p_FDR := p.adjust(p.value, method='BH')]
   
