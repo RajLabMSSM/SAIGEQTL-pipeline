@@ -28,9 +28,10 @@ inputs <- paste0(prefix_step_02, 'SAIGEQTL_', chrom, '_', features, '.txt')
 if (!length(inputs)) stop('No features for chromosome ', chrom)
 missing <- !file.exists(inputs)
 missing_file <- sub('[.]tsv[.]gz$', '_missing_step2.tsv', output_file)
-fwrite(data.table(chr=rep(chrom, sum(missing)), feature=features[missing],
-                  file=inputs[missing]), missing_file, sep='\t', quote=FALSE)
 if (any(missing)) {
+  fwrite(data.table(chr=rep(chrom, sum(missing)), feature=features[missing],
+                  file=inputs[missing]), missing_file, sep='\t', quote=FALSE)
+
   message(' * Skipping ', sum(missing), ' missing Step 2 files; list saved to: ', missing_file)
 }
 inputs <- inputs[!missing]
