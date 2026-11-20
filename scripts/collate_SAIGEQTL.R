@@ -26,9 +26,19 @@ meta <- fread(pheno_meta, header=FALSE,
 features <- meta[chr == chrom, unique(feature)]
 inputs <- paste0(prefix_step_02, 'SAIGEQTL_', chrom, '_', features, '.txt')
 if (!length(inputs)) stop('No features for chromosome ', chrom)
-if (any(!file.exists(inputs))) stop('Missing Step 2 files: ', paste(inputs[!file.exists(inputs)], collapse=', '))
+missing <- !file.exists(inputs)
+missing_file <- sub('[.]tsv[.]gz$', '_missing_step2.tsv', output_file)
+fwrite(data.table(chr=rep(chrom, sum(missing)), feature=features[missing],
+                  file=inputs[missing]), missing_file, sep='\t', quote=FALSE)
+if (any(missing)) {
+  message(' * Skipping ', sum(missing), ' missing Step 2 files; list saved to: ', missing_file)
+}
+inputs <- inputs[!missing]
+features <- features[!missing]
+if (!length(inputs)) stop('No Step 2 files available for chromosome ', chrom,
+                          '; missing list saved to: ', missing_file)
 
-message(" * Processing full associations for QTL peak ")
+message(' * Processing full associations for chromosome ', chrom)
 # Read and combine input files
 process_sumstats <- function(x, feature_j){
   sumstats_feature_j <- readr::read_tsv(
