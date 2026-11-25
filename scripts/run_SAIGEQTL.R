@@ -35,7 +35,7 @@ option_list <- list(
   make_option('--qcov_cols', default = ''),
   make_option('--tol', type = 'double', default = 0.02),
   make_option('--cis_window', type = 'double', default = 1e6),
-  make_option('--minMAF', type = 'double', default = .01),
+  make_option('--minMAF', type = 'double', default = .05),
   make_option('--minMAC', type = 'double', default = 20),
   make_option('--SPAcutoff', type = 'double', default = 2),
   make_option('--markers_per_chunk', type = 'integer', default = 10000L)
