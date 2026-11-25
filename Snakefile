@@ -159,7 +159,7 @@ rule prepare_PLINK:
                    --max-alleles 2 \
                    --geno 0.1 \
                    --mac 20 \
-                   --maf 0.01 \
+                   --maf 0.05 \
                    --keep-allele-order \
                    --keep {input.participants} \
                    --exclude range {params.blacklist} \
@@ -171,7 +171,7 @@ rule prepare_PLINK:
                    --output-chr chrM \
                    --max-alleles 2 \
                    --geno 0.1 \
-                   --maf 0.01 \
+                   --maf 0.05 \
                    --max-maf 0.9975 \
                    --keep-allele-order \
                    --keep {input.participants} \
