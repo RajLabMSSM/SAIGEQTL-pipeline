@@ -76,6 +76,12 @@ extract_sumstats <- function(j){
 res <- purrr::map_df(seq_along(features), extract_sumstats)
 res <- dplyr::arrange(res, ACAT_p)
 
+# Apply FDR correction across genes using lead-SNP Bonferroni p-values.
+res <- res %>%
+  dplyr::mutate(
+    p_bonf_FDR = p.adjust(p_bonf, method = "fdr")
+  )
+
 # Attach Step 4 q-values
 egene_file <- paste0(step4_prefix, 'pval_main_egene.tsv')
 
